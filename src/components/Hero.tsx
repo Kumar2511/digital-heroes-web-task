@@ -1,15 +1,14 @@
 import { Container } from '@/components/Container';
 import { Button } from '@/components/Button';
-import { useInView } from '@/hooks/useInView';
-import { cx } from '@/utils/format';
 
 export function Hero() {
-  const { ref, inView } = useInView<HTMLDivElement>();
-
   return (
     <section className="relative overflow-hidden bg-ink-950">
       {/* Background */}
-      <div className="absolute inset-0 bg-grid-dark opacity-20" aria-hidden="true" />
+      <div
+        className="absolute inset-0 bg-grid-dark opacity-20"
+        aria-hidden="true"
+      />
 
       <div
         className="absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-brand-600/20 blur-[120px]"
@@ -22,24 +21,13 @@ export function Hero() {
       />
 
       <Container className="relative flex flex-col items-center py-24 text-center lg:py-36">
-
         {/* Badge */}
-        <div
-          className={cx(
-            "mb-6 inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-2 text-sm font-medium text-brand-200 transition-all duration-700",
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          )}
-        >
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-2 text-sm font-medium text-brand-200">
           🚀 Trusted by growing businesses worldwide
         </div>
 
         {/* Heading */}
-        <h1
-          className={cx(
-            "max-w-5xl text-5xl font-extrabold leading-tight text-white sm:text-6xl lg:text-7xl transition-all duration-700",
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          )}
-        >
+        <h1 className="max-w-5xl text-5xl font-extrabold leading-tight text-white sm:text-6xl lg:text-7xl">
           Smarter Business Operations
           <br />
           Powered by{" "}
@@ -49,24 +37,14 @@ export function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p
-          className={cx(
-            "mt-8 max-w-3xl text-lg leading-8 text-ink-300 sm:text-xl transition-all duration-700 delay-150",
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          )}
-        >
+        <p className="mt-8 max-w-3xl text-lg leading-8 text-ink-300 sm:text-xl">
           Nexora AI helps modern organizations automate repetitive workflows,
           improve collaboration, reduce operational costs, and gain real-time
           business insights through one secure cloud platform.
         </p>
 
         {/* Buttons */}
-        <div
-          className={cx(
-            "mt-10 flex flex-col gap-4 sm:flex-row transition-all duration-700 delay-300",
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          )}
-        >
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <Button
             to="/contact"
             variant="primary"
@@ -87,12 +65,7 @@ export function Hero() {
         </div>
 
         {/* Stats */}
-        <div
-          className={cx(
-            "mt-16 grid grid-cols-1 gap-10 text-center sm:grid-cols-3 transition-all duration-700 delay-500",
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          )}
-        >
+        <div className="mt-16 grid grid-cols-1 gap-10 text-center sm:grid-cols-3">
           <div>
             <h3 className="text-4xl font-bold text-white">500+</h3>
             <p className="mt-2 text-ink-400">
@@ -114,10 +87,7 @@ export function Hero() {
             </p>
           </div>
         </div>
-
       </Container>
-
-      <div ref={ref} className="sr-only" />
     </section>
   );
 }
